@@ -1,5 +1,6 @@
 import sys
 from typing import List
+from input_parser import InputParser
 
 def read_input_from_file(filename: str) -> List[str]:
   """Read input from a file"""
@@ -24,6 +25,10 @@ def main():
       raise FileNotFoundError(f"Input file not specified")
     
     
+    # Parse base info
+    base_cost, num_packages = InputParser.parse_base_info(lines[0])
+    
+    print(base_cost,num_packages)
     
   except ValueError as e:
         print(f"Input validation error: {e}", file=sys.stderr)
