@@ -2,6 +2,11 @@
 
 This repository contains a Python command-line solution for the Everest Engineering Courier Service assignment. The solution estimates delivery costs and times based on input packages, offers, and vehicle information.
 
+## Cloning git repository
+
+1. git clone https://github.com/TanveerT/Delivery_Time_Cost_Estimation-.git
+2. use branch main
+
 ## How to Run
 
 1. Ensure Python 3 and unittest is installed.
@@ -11,6 +16,11 @@ This repository contains a Python command-line solution for the Everest Engineer
 The program prints the output lines directly to the console.
 
 To run the test case run the follwoing : python3 main.py input.txt
+
+## How to Run Test Cases
+
+1. To run unit test cases : python -m unittest test_units.py
+2. To run integration test : python -m unittest test_integration.py
 
 ## Input Format
 
