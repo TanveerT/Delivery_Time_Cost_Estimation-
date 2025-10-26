@@ -51,3 +51,21 @@ class Offer:
         """Check if offer is applicable for given weight and distance"""
         return (self.min_weight <= weight <= self.max_weight and
                 self.min_distance <= distance <= self.max_distance)
+        
+
+class Vehicle:
+    """Represents a delivery vehicle"""
+
+    def __init__(self, vehicle_id: int, max_speed: float, max_load: float):
+        if max_speed <= 0:
+            raise ValueError("Vehicle speed must be positive")
+        if max_load <= 0:
+            raise ValueError("Vehicle max load must be positive")
+
+        self.vehicle_id = vehicle_id
+        self.max_speed = max_speed
+        self.max_load = max_load
+        self.available_at = 0.0
+
+    def __repr__(self):
+        return f"Vehicle(id={self.vehicle_id}, speed={self.max_speed}, load={self.max_load})"
