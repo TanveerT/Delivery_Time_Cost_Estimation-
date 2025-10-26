@@ -31,3 +31,23 @@ class Package:
 
     def __repr__(self):
         return f"Package(id={self.pkg_id}, weight={self.weight}, distance={self.distance})"
+
+
+
+class Offer:
+    """Represents a discount offer with specific criteria"""
+
+    def __init__(self, code: str, discount_percentage: float, 
+                 min_weight: float, max_weight: float, 
+                 min_distance: float, max_distance: float):
+        self.code = code
+        self.discount_percentage = discount_percentage
+        self.min_weight = min_weight
+        self.max_weight = max_weight
+        self.min_distance = min_distance
+        self.max_distance = max_distance
+
+    def is_applicable(self, weight: float, distance: float) -> bool:
+        """Check if offer is applicable for given weight and distance"""
+        return (self.min_weight <= weight <= self.max_weight and
+                self.min_distance <= distance <= self.max_distance)
