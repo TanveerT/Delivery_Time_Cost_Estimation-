@@ -1,6 +1,7 @@
 import sys
 from typing import List
 from input_parser import InputParser
+from offer_service import OfferService
 
 def read_input_from_file(filename: str) -> List[str]:
   """Read input from a file"""
@@ -16,7 +17,7 @@ def read_input_from_file(filename: str) -> List[str]:
 def main():
   """ Main application logic"""
   
-  print(sys.argv)
+
   try:
     if len(sys.argv) > 1:
       filename = sys.argv[1]
@@ -27,8 +28,10 @@ def main():
     
     # Parse base info
     base_cost, num_packages = InputParser.parse_base_info(lines[0])
+    # Initialize services
+    offer_service = OfferService()
     
-    print(base_cost,num_packages)
+    print(offer_service)
     
   except ValueError as e:
         print(f"Input validation error: {e}", file=sys.stderr)
