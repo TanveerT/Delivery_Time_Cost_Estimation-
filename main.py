@@ -2,6 +2,7 @@ import sys
 from typing import List
 from input_parser import InputParser
 from offer_service import OfferService
+from cost_calculator import CostCalculator
 
 def read_input_from_file(filename: str) -> List[str]:
   """Read input from a file"""
@@ -27,11 +28,15 @@ def main():
     
     
     # Parse base info
-    base_cost, num_packages = InputParser.parse_base_info(lines[0])
+    # Parse input
+    base_cost, packages, vehicle_info = InputParser.read_input(lines)
     # Initialize services
     offer_service = OfferService()
+    cost_calculator = CostCalculator(base_cost, offer_service)
+     # Calculate costs
+    cost_calculator.calculate_costs_batch(packages)
     
-    print(offer_service)
+    print(cost_calculator)
     
   except ValueError as e:
         print(f"Input validation error: {e}", file=sys.stderr)
